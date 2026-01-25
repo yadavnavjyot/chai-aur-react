@@ -1,7 +1,12 @@
+import Chai from './Chai';
+
 
 function App() {
   return (
-   <h1>Chai aur React | Navjyot - Learning</h1>
+    <>
+    <Chai/>
+    {/* <h1>Chai aur React | Navjyot - Learning</h1> */}
+    </>
   );
 }
 
