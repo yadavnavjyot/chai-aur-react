@@ -5,30 +5,85 @@ import React from "react";
 function App() {
   const [count, setCount] = useState(0);
 
+  const products = [
+    {
+      id: 1,
+      name: "Basic Tee",
+      href: "#",
+      imageSrc:
+        "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
+      imageAlt: "Front of men's Basic Tee in black.",
+      price: "$35",
+      color: "Black",
+    },
+    {
+      id: 2,
+      name: "Basic Tee",
+      href: "#",
+      imageSrc:
+        "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg",
+      imageAlt: "Front of men's Basic Tee in white.",
+      price: "$35",
+      color: "Aspen White",
+    },
+    {
+      id: 3,
+      name: "Basic Tee",
+      href: "#",
+      imageSrc:
+        "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg",
+      imageAlt: "Front of men's Basic Tee in dark gray.",
+      price: "$35",
+      color: "Charcoal",
+    },
+    {
+      id: 4,
+      name: "Artwork Tee",
+      href: "#",
+      imageSrc:
+        "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-04.jpg",
+      imageAlt:
+        "Front of men's Artwork Tee in peach with white and brown dots forming an isometric cube.",
+      price: "$35",
+      color: "Iso Dots",
+    },
+  ];
+
   return (
     <>
-      <h2 className="text-2xl font-semibold">Hello, Tailwind CSS!</h2>
-      <div className="mx-auto w-64 mt-4">
-        <img
-          src="https://img.freepik.com/free-photo/young-family-with-their-little-baby-child-park-by-lake_1303-14979.jpg?w=2000"
-          alt="Family"
-          className="mx-auto"
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-xl font-bold text-gray-800">Product Name</h3>
-        <p className="text-gray-600 text-sm mt-2">
-          High-quality product with excellent features and durability.
-        </p>
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-2xl font-semibold text-blue-600">$99.99</span>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            Add to Cart
-          </button>
-        </div>
-        <div className="flex mt-3">
-          <span className="text-yellow-500">★★★★★</span>
-          <span className="text-gray-500 ml-2">(42 reviews)</span>
+      <div className="bg-white">
+        <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+            Customers also purchased
+          </h2>
+
+          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            {products.map((product) => (
+              <div key={product.id} className="group relative">
+                <img
+                  alt={product.imageAlt}
+                  src={product.imageSrc}
+                  className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
+                />
+                <div className="mt-4 flex justify-between">
+                  <div>
+                    <h3 className="text-sm text-gray-700">
+                      <a href={product.href}>
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {product.name}
+                      </a>
+                    </h3>
+                    <p className="mt-1 text-sm text-gray-500">
+                      {product.color}
+                    </p>
+                  </div>
+                  <p className="text-sm font-medium text-gray-900">
+                    {product.price}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
